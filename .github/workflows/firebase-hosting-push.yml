@@ -38,11 +38,11 @@ jobs:
               color: 'good',
               fields: [{
                 title: 'Repo:',
-                value: $GITHUB_REPOSITORY,
+                value: '${{ env.GITHUB_REPOSITORY }}',
               },
               {
                 title: 'Push:',
-                value: $GITHUB_SHA,
+                value: '${{ env.GITHUB_SHA }}',
               },
               {
                 title: 'Website URL:',
