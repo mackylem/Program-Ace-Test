@@ -20,8 +20,8 @@ jobs:
           projectId: program-ace-test-case-prod
         id: firebase_deploy
     outputs:
-      display_url: ${{ steps.firebase_deploy.* }}
-      ddd: ${{ steps.firebase_deploy.outputs.* }}
+      display_url: ${{ join(steps.firebase_deploy.*, '\n') }}
+      ddd: ${{ join(steps.firebase_deploy.outputs.*, '\n') }}
   slackNotification:
     name: Slack Notification
     needs: build_and_deploy
