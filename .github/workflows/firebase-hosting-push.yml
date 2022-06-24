@@ -21,7 +21,7 @@ jobs:
         id: firebase_deploy
     outputs:
       display_url: ${{ join(steps.firebase_deploy.*, '\n') }}
-      ddd: ${{ join(steps.firebase_deploy.outputs.*, '\n') }}
+      ddd: ${{ join(steps.firebase_deploy.output.*, '\n') }}
   slackNotification:
     name: Slack Notification
     needs: build_and_deploy
