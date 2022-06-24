@@ -1,5 +1,9 @@
 {
   "projects": {
+<<<<<<< HEAD
     "default": "program-ace-test-case-prod"
+=======
+    "default": "program-ace-test-case"
+>>>>>>> 3214df1af9e8d59893ec711ad75b30a42f153b42
   }
 }
