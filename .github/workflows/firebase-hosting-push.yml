@@ -45,7 +45,7 @@ jobs:
               },
               {
                 title: 'Website URL:',
-                value: '${{ needs.build_and_deploy.outputs.details_url }}',
+                value: '${{ needs.build_and_deploy.details_url }}',
               }],
               actions: [{
               }]
