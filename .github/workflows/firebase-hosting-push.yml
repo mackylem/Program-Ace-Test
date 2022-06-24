@@ -29,8 +29,4 @@ jobs:
       env:
         SLACK_TITLE: 'Website URL'
         SLACK_MESSAGE: ${{ needs.build_and_deploy.outputs.urls }}
-        SLACK_TITLE: 'Anougher title'
-        SLACK_MESSAGE: 'message'
-        SLACK_TITLE: 'asdasd'
-        SLACK_MESSAGE: ${{ needs.build_and_deploy.outputs.details_url }}
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
