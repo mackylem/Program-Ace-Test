@@ -38,7 +38,7 @@ jobs:
               color: 'good',
               fields: [{
                 title: 'Repo:',
-                value: '${{ env.GITHUB_REPOSITORY }}',
+                value: '${{ github.repository }}',
               },
               {
                 title: 'Push:',
