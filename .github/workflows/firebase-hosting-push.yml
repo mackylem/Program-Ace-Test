@@ -37,15 +37,15 @@ jobs:
               color: 'good',
               fields: [{
                 title: 'Repo:',
-                value: '$GITHUB_REPOSITORY',
+                value: $GITHUB_REPOSITORY,
               },
               {
                 title: 'Push:',
-                value: '$GITHUB_SHA',
+                value: $GITHUB_SHA,
               },
               {
                 title: 'Website URL:',
-                value: '${{ needs.build_and_deploy.outputs.urls }}'
+                value: ${{ needs.build_and_deploy.outputs.urls }}
               }],
               actions: [{
               }]
