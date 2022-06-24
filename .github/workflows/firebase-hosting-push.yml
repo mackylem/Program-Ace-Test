@@ -18,6 +18,7 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PROGRAM_ACE_TEST_CASE_PROD }}'
           channelId: live
           projectId: program-ace-test-case-prod
+        id: firebase_deploy
   slackNotification:
     name: Slack Notification
     needs: build_and_deploy
@@ -45,7 +46,7 @@ jobs:
               },
               {
                 title: 'Website URL:',
-                value: '${{ needs.build_and_deploy.details_url }}',
+                value: '${{ steps.firebase_deploy.details_url }}',
               }],
               actions: [{
               }]
