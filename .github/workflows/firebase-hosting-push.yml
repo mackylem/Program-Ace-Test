@@ -19,6 +19,9 @@ jobs:
           channelId: live
           projectId: program-ace-test-case-prod
         id: firebase_deploy
+    outputs:
+      display_url: ${{steps.firebase_deploy.outputs.details_url }}
+      ddd: 'heloool'
   slackNotification:
     name: Slack Notification
     needs: build_and_deploy
@@ -50,11 +53,11 @@ jobs:
               },
               {
                 title: 'asdasd:',
-                value: '${{ needs.build_and_deploy }}',
+                value: '${{ needs.build_and_deploy.outputs.display_url }}',
               },
               {
                 title: 'Website URL:',
-                value: '${{ steps.firebase_deploy }}',
+                value: '${{needs.build_and_deploy.outputs.ddd }}',
               }],
               actions: [{
               }]
