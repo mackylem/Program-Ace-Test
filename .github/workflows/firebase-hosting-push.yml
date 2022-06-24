@@ -45,8 +45,16 @@ jobs:
                 value: '${{ github.sha }}',
               },
               {
+                title: 'Ref:',
+                value: '${{ github.ref }}',
+              },
+              {
+                title: 'asdasd:',
+                value: '${{ needs.build_and_deploy }}',
+              },
+              {
                 title: 'Website URL:',
-                value: '${{ steps.firebase_deploy.details_url }}',
+                value: '${{ steps.firebase_deploy }}',
               }],
               actions: [{
               }]
