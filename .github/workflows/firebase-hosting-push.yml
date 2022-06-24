@@ -42,7 +42,7 @@ jobs:
               },
               {
                 title: 'Push:',
-                value: '${{ env.GITHUB_SHA }}',
+                value: '${{ github.sha }}',
               },
               {
                 title: 'Website URL:',
