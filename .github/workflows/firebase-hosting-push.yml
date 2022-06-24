@@ -19,49 +19,41 @@ jobs:
           channelId: live
           projectId: program-ace-test-case-prod
         id: firebase_deploy
-    outputs:
-      display_url: ${{ join(steps.firebase_deploy.*, '\n') }}
-      ddd: ${{ join(steps.firebase_deploy.output.*, '\n') }}
-  slackNotification:
-    name: Slack Notification
-    needs: build_and_deploy
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Slack Notification
-      uses: sonots/slack-notice-action@v3
-      with:
-        status: custom
-        payload: |
-          {
-            text: 'Custom Slack Message',
-            attachments: [{
-              title: 'CI Result',
-              text: 'Succeeded',
-              color: 'good',
-              fields: [{
-                title: 'Repo:',
-                value: '${{ github.repository }}',
-              },
-              {
-                title: 'Push:',
-                value: '${{ github.sha }}',
-              },
-              {
-                title: 'Ref:',
-                value: '${{ github.ref }}',
-              },
-              {
-                title: 'asdasd:',
-                value: '${{ needs.build_and_deploy.outputs.display_url }}',
-              },
-              {
-                title: 'Website URL:',
-                value: '${{needs.build_and_deploy.outputs.ddd }}',
-              }],
-              actions: [{
+      - uses: actions/checkout@v2
+      - name: Slack Notification
+        uses: sonots/slack-notice-action@v3
+        with:
+          status: custom
+          payload: |
+            {
+              text: 'Custom Slack Message',
+              attachments: [{
+                title: 'CI Result',
+                text: 'Succeeded',
+                color: 'good',
+                fields: [{
+                  title: 'Repo:',
+                  value: '${{ github.repository }}',
+                },
+                {
+                  title: 'Push:',
+                  value: '${{ github.sha }}',
+                },
+                {
+                  title: 'Ref:',
+                  value: '${{ github.ref }}',
+                },
+                {
+                  title: 'asdasd:',
+                  value: '${{ steps.firebase_deploy.outputs.urls }}',
+                }, 
+                {
+                  title: 'Website URL:',
+                  value: '${{ steps.firebase_deploy.outputs.details_url }}',
+                }],
+                actions: [{
+                }]
               }]
-            }]
-          }
-      env:
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
