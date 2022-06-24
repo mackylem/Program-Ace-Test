@@ -44,12 +44,8 @@ jobs:
                   value: '${{ github.ref }}',
                 },
                 {
-                  title: 'asdasd:',
-                  value: '${{ steps.firebase_deploy.outputs.urls }}',
-                }, 
-                {
                   title: 'Website URL:',
-                  value: '${{ steps.firebase_deploy.outputs.details_url }}',
+                  value: 'https://program-ace-test-case-prod.web.app/',
                 }],
                 actions: [{
                 }]
